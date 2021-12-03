@@ -1,0 +1,66 @@
+--- pom.xml	2021-12-01 14:31:02.677001300 +0800
++++ pom_ori.xml	2021-11-30 13:23:30.883226300 +0800
+@@ -4,11 +4,11 @@
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+ 
+-  <groupId>chewyt</groupId>
+-  <artifactId>shoppingcart</artifactId>
++  <groupId>com.example1</groupId>
++  <artifactId>demo1</artifactId>
+   <version>1.0-SNAPSHOT</version>
+ 
+-  <name>shoppingcart</name>
++  <name>demo1</name>
+   <!-- FIXME change it to the project's website -->
+   <url>http://www.example.com</url>
+ 
+@@ -20,11 +20,17 @@
+ 
+   <dependencies>
+     <dependency>
+-      <groupId>junit</groupId>
+-      <artifactId>junit</artifactId>
+-      <version>4.11</version>
+-      <scope>test</scope>
+-    </dependency>
++    <groupId>org.junit.jupiter</groupId>
++    <artifactId>junit-jupiter-api</artifactId>
++    <version>5.4.2</version>
++    <scope>test</scope>
++</dependency>
++<dependency>
++    <groupId>org.junit.jupiter</groupId>
++    <artifactId>junit-jupiter-engine</artifactId>
++    <version>5.4.2</version>
++    <scope>test</scope>
++</dependency>
+   </dependencies>
+ 
+   <build>
+@@ -69,6 +75,25 @@
+           <artifactId>maven-project-info-reports-plugin</artifactId>
+           <version>3.0.0</version>
+         </plugin>
++        <plugin>
++          <groupId>org.jacoco</groupId>
++          <artifactId>jacoco-maven-plugin</artifactId>
++          <version>0.8.4</version>
++          <executions>
++              <execution>
++                  <goals>
++                      <goal>prepare-agent</goal>
++                  </goals>
++              </execution>
++              <execution>
++                  <id>report</id>
++                  <phase>prepare-package</phase>
++                  <goals>
++                      <goal>report</goal>
++                  </goals>
++              </execution>
++          </executions>
++        </plugin>
+       </plugins>
+     </pluginManagement>
+   </build>
