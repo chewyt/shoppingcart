@@ -152,7 +152,7 @@ public class App {
 
     public static void delete(ArrayList<String> cartitems, int index){
 
-        if (index <= cartitems.size()){
+        if (index>0&&index <= cartitems.size()){
             System.out.println(cartitems.get(index-1)+" removed from cart");
             cartitems.remove(index-1);
         }
