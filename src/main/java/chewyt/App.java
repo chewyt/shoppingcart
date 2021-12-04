@@ -79,6 +79,7 @@ public class App {
         
                         Integer index = Integer.parseInt(del_matcher.group(1));
                         delete(cart, index);
+                        
                         continue;
         
                     }

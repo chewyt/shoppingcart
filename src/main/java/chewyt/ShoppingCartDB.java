@@ -14,9 +14,10 @@ public class ShoppingCartDB {
     public static void main(String[] args) {
         //createDirectory("CartDB");
         //createFile("CartDB", "John");
-        ArrayList<String> al = new ArrayList<String>();
-        loadShoppingCart("CartDB", "John", al);
-        System.out.println("Al list : "+ al);
+        //ArrayList<String> al = new ArrayList<String>();
+        //loadShoppingCart("CartDB", "John", al);
+        //System.out.println("Al list : "+ al);
+        
     }
     
     public static void login(String path,String user, ArrayList<String> users, ArrayList<String> cart){
@@ -49,20 +50,23 @@ public class ShoppingCartDB {
         return users;
     }
 
-    public static void createFile(String path, String user,ArrayList<String> cart){
+    public static boolean createFile(String path, String user,ArrayList<String> cart){
         
         File DBfile = new File(path+"/"+user+".db");
                
         try {
             if(DBfile.createNewFile()){
                 System.out.println("Status: DB file created successfully");
+                return true;
             }else{
                 System.out.println("Status: DB file exists. Load DB file");
                 loadShoppingCart(path, user, cart);
+                return false;
             }
         } catch (IOException e) {
             System.out.println("ERROR: File not created");
             e.printStackTrace();
+            return false;
         }          
     }
 
